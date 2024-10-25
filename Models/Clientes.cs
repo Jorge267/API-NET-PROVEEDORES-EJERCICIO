@@ -5,7 +5,7 @@ namespace ApiEmpresa.Models;
 public class Clientes
 {
     [Key]
-    public Int32 Id { get; set; }
+    public Int32 id_cliente { get; set; }
     public string? nombres { get; set; }
     public string? apellidos { get; set; }
     public string? direccion { get; set; }

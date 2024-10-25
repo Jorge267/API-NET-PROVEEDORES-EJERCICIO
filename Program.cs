@@ -5,9 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+String? cadena = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddControllers();
+if(cadena!=null){
 builder.Services.AddDbContext<Conexiones>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    /*opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); Esto es para SQL SERVER*/
+    opt.UseMySQL(cadena));
+}
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
